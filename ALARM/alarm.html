@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="alarm.css">
+	<title>Alarm</title>
+</head>
+<body>
+<div id="sch">
+<div id="result"></div><br><br><br><br><br><br><br>
+
+	<center>
+		<div id="usa">
+	<input id="box" type="number"  placeholder="hours">
+	<input id="box2" type="number" placeholder="minutes">
+	<input id="box3" type="number" placeholder="seconds"><br><br>
+	</div>
+	<button id="bst" onclick="myFunction()">setAlarm</button>
+	<button id="tf" onclick="snoozeMe()">snooze</button>
+	<button id="nyc"onclick="mystop(busta)">stop</button>
+
+	<select id="skyle">
+	<option value="AM">am</option>
+	<option value="PM">pm</option>	
+	
+
+	</select>
+</center>
+<div id="answer" style="display: none">
+	<span id="que">5+5</span>
+	<input type="number" id="question" placeholder="enter answer" name="">
+	<button onclick="stop()">submit</button>
+</div>
+
+
+</div>
+<script>
+	
+	var snd = new Audio('k.mp3');
+	setInterval(busta, 1000)
+	var total;
+	var a;	//hours//
+	var b;	//minutes//
+	var c;	//seconds//
+	var d;	//am/pm// 
+	var totalTime
+	
+
+function busta() {
+	var date = new Date()
+var totalTime = date.toLocaleTimeString()
+result.innerHTML= totalTime;
+if (total == totalTime) {
+	snd.play();
+	}
+}
+
+
+function myFunction() {
+	a = box.value
+	b = box2.value
+	c = box3.value
+	d = skyle.value;
+	
+	 // var total = a + ":" + b + ":" + c + ":" + d;
+	total  = `${a}:${b}:${c} ${d}` 
+	alert('your time has been set to ' + a + ":" +  b + ":" + c + " "+ d)
+}
+
+	function snoozeMe() {
+		snd.pause();
+		setInterval(sing, 300000)
+	}
+
+	function sing() {
+		snd.play();
+	}
+
+let mystop =()=>{
+	document.getElementById('answer').style.display = 'block';
+}
+
+function stop() {
+	if (question.value == 10){
+		snd.pause()
+	document.getElementById('answer').style.display = 'none';	
+	}
+}
+
+</script>
+</body>
+</html>

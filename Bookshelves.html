@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="bootstrap-4.5.0-dist/css/bootstrap.min.css">
+
+</head>
+<body>
+	<div class="container" style="background-color:">
+	<div class = "container mt-3">
+	<h1 class="text-primary" align="center">BOOK-SHELVES</h1>
+	<div class="d-flex flex-column mb-3">
+	<input type="" class="btn btn-outline-dark" placeholder="Title of book" id="title"><br>
+	<input type="" class="btn btn-outline-dark" placeholder="Author of book" id="author"><br>
+	<input type="" class="btn btn-outline-dark" placeholder="Pages of book" id="pages"><br>
+	<button class="btn btn-danger" onclick="addToLibrary()">Add to library</button><br>
+	<button class="btn btn-danger" onclick="display()">Display books</button><br>
+	<button class="btn btn-danger" onclick="del()">DELETE</button><br>
+	<input type="text" id="searchItem" value="" placeholder="Search......">
+	<button onclick="searchBooks()">Search</button>
+</div>
+</div>
+</div>
+<center><div id="finalResult"></div></center>
+<script type="text/javascript">
+	// let result 
+
+	let addToLibrary=()=>{
+		let obj = {title:title.value, author:author.value, pages:pages.value, isbn:generateISBN()}
+if (!localStorage.hasOwnProperty("mylibrary")) {
+	localStorage.setItem("mylibrary", JSON.stringify([]))
+}
+
+// 	obj = {title:title.value, author:author.value, pages:pages.value}
+// 	if (obj.title == "" || obj.author == "" || obj.pages == "") {
+// 		alert("please fill in the input")
+// }
+
+let collectArray = JSON.parse(localStorage.getItem("mylibrary"))
+collectArray.push(obj)
+localStorage.setItem("mylibrary",JSON.stringify(collectArray))
+alert("Your book has been added")
+	} 
+
+	let generateISBN=()=>{
+		let alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+	
+		let generateAlpha = Math.floor(Math.random()*26)
+		let generateAlpha1 = Math.floor(Math.random()*26)
+		let generateAlpha2 = Math.floor(Math.random()*26)
+		let generateAlpha3 = Math.floor(Math.random()*26)
+		let generateAlpha4 = Math.floor(Math.random()*26)
+		let generateAlpha5 = Math.floor(Math.random()*26)
+		let number = Math.floor(Math.random()*10)
+		let number1 = Math.floor(Math.random()*10)
+		let number2 = Math.floor(Math.random()*10)
+		let returnOut = alphabet[generateAlpha]+alphabet[generateAlpha1]+number+alphabet[generateAlpha2]+ number2 + alphabet[generateAlpha3]
+		return returnOut
+	}
+
+	let del =()=>{
+		localStorage.removeItem("mylibrary")
+		finalResult.innerHTML = ""
+	}
+let collectLibrary
+	let display=()=>{
+		let final;
+		let table = "<table class='table table-striped'><tr><td>S/N</td><td>Title</td><td>Author</td><td>Pages</td><td>ISBN</td><td>button</td><tr>" 
+		 collectLibrary = JSON.parse(localStorage.getItem("mylibrary"))
+	    for (var i = 0; i < collectLibrary.length; i++) {
+			let d = i+1
+	    	let a = collectLibrary[i].title;
+	    	let b = collectLibrary[i].author;
+	    	let c = collectLibrary[i].pages;
+	        let e = collectLibrary[i].isbn;
+	         final = `<tr><td>${d}</td><td>${a}</td><td>${b}</td><td>${c}</td><td>${e}</td><td><button onclick="rem(${i})">Remove</button></td></tr>`
+	        
+table+=final
+
+	    }
+	   table+="</table>" 
+	  finalResult.innerHTML =table 
+
+	   
+	}
+	function rem(en) {
+		for (var i = 0; i < collectLibrary.length; i++) {
+			if (en == i) {
+				collectLibrary.splice(en,1);
+			}
+		}
+		localStorage.mylibrary = JSON.stringify(collectLibrary)
+		display();
+	}
+
+		function searchBooks() {
+	collectLibrary = JSON.parse(localStorage.getItem("mylibrary"))
+	 collectLibrary.filter((val, ind)=>val.title == searchItem.value?finalResult.innerHTML =  "<table class='table table-striped'><tr><td>S/N</td><td>Title</td><td>Author</td><td>Pages</td><td>ISBN</td></tr>" + "<td>" + "<td>" + [ind +1] + "</td>"+ collectLibrary[ind].title + "</td>" + "<td>" + collectLibrary[ind].author + "</td>" + "<td>" + collectLibrary[ind].pages + "</td>" + "<td>" + collectLibrary[ind].isbn + "</td>" + "</table>" :null)
+		}
+		
+</script>
+</body>
+</html>
