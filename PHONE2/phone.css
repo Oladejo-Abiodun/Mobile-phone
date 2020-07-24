@@ -1,0 +1,79 @@
+.result{
+	width: 220px;
+	height: 200px;	
+}
+
+.phone{
+
+	margin-left: 350px;
+}
+
+.clock{
+		
+}
+
+
+.container{
+	border: 2px solid grey;
+	margin-top: -200px;
+	border-radius: 40px;
+	height: 490px;
+	width: 320px;
+	background-color: black;
+}
+
+.box{
+	border: 1px solid grey;
+	border-radius: 10px;
+	margin-top: -29px;
+	font-size: 25px;
+	text-align: center;
+	height:300px;
+	width: 300px;
+	background-color:white;
+}
+
+.switch{
+	border: 1px solid grey;
+	border-radius: 100%;
+	width: 45px;
+	background-color: black;
+	height: 45px;
+	cursor: pointer;
+}
+
+#call{
+	border: none;
+	float: left;
+	width: 100px;
+	height: 35px;
+	cursor: pointer;
+	background-color: green;
+	color:white;
+}
+#endcall{
+	border: none;
+
+	float: left;
+	width: 100px;
+	height: 35px;
+	cursor: pointer;
+	background-color:red;
+	color:white;
+}
+.end{
+	border: none;
+	float: right;
+	width: 100px;
+	height: 35px;
+	cursor: pointer;
+	background-color: red;
+	color:white;
+}
+
+.button{
+	margin: 1px;
+	cursor: pointer;
+	color: black;
+	
+}
