@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Multiplication table</title>
+</head>
+<body>
+<center>
+<h1 style="background-color: grey; height: 100px;">MULTIPLICATION TABLE</h1>
+</center>
+
+<center>
+<div id="container" style="">
+	<input id="box" placeholder="column" type="number">
+	<input id="box2" placeholder="row" type="number">
+</div>
+</center>
+
+<div id="tf">
+	<button onclick="myFunction()" style="">Display</button><br><br>
+</div>
+	<div id="ab">
+<select id="add">
+<option value="*">Multiplication</option>
+<option value="+">Addition</option>
+<option value="-">Substraction</option>
+<option value="/">Division</option>
+</select>
+	</div>
+<div id="busta"></div>
+</body>
+	<script type="text/javascript">
+	 function myFunction() {
+        var s ="";
+       s+="<table>"
+        for(i =1; i<=box.value; i++){
+            s+="<td>";
+            s+="Table "+ i;
+            s+="<table border='2px'solid black>"
+
+            for(a=1; a<=box2.value; a++){
+                s+="<tr><td>"+(i+add.value+a)+ "="+
+                eval(i+add.value+a).toFixed(2)+"</td></tr>"
+                
+            }
+            s+="</table></td>"
+        }
+        s=="</tr></Table>"
+        busta.innerHTML=s
+    }	
+
+	</script>
+
+
+</html>
