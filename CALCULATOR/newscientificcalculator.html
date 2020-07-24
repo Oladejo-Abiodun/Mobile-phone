@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<title>newscientific calculator</title>
+	<link rel="stylesheet" type="text/css" href="newscientific.css">
+ </head> 
+<body>
+	<div id="container">
+	<div class="screen"><form name="calculator"><input type="text" value="0"  id="scr" size="20" height="60px" readonly maxlength="50" name="display" ></form></div>
+		
+	<div class="btns"> 
+		<p>
+			<input type="button" value="Sin" class="button black" onclick="ab('Sin')">
+			<input type="button" value="Cos" class="button black" onclick="ab('Cos')">
+			<input type="button" value="Tan" class="button black" onclick="ab('Tan')">
+			<input type="button" value="(-)" class="button black" onclick="changeSign(scr.value)">
+			<input type="button" value="ABS" class="button black" onclick="tf('abs')">
+		</p>
+		<p>
+			<input type="button" value="&radic;"class="button black" onclick="ab('sqrt')">
+			<input type="button" value="x2"class="button black" onclick="sq2('sqr')">
+			<input type="button" value="R" class="button black" onclick="oj('round')">
+			<input type="button" value="Log" class="button black" onclick="ab('Log')">
+			<input type="button" value="CBR" class="button black" onclick="ab('cbrt')">
+		</p>
+		<p>
+			<input type="button" value="CLR" class="button black" onclick="cl()"> 
+			<input type="button" value="(" class="button black" onclick="ab('(')">
+			<input type="button" value=")" class="button black" onclick="ab(')')">
+			<input type="button" value="Log10" class="button black" onclick="sst('LN10')">
+			<input type="button" value="MOD" class="button black" onclick="md('MOD')">
+		</p>
+		<p>
+			<input type="button" value="7" class="button silver" onclick="ab('7')">
+			<input type="button" value="8" class="button silver" onclick="ab('8')">
+			<input type="button" value="9" class="button silver" onclick="ab('9')">
+			<input type="button" value="DEL" class="button red" onclick="del()">
+			<input type="button" id="pl" value="ON" class="button red" onclick="skyle()">
+		</p>
+		<p>
+			<input type="button" value="4" class="button silver" onclick="ab('4')">
+			<input type="button" value="5" class="button silver" onclick="ab('5')">
+			<input type="button" value="6" class="button silver" onclick="ab('6')">
+			<input type="button" value="X" class="button silver" onclick="ab('*')">
+			<input type="button" value="/" class="button silver" onclick="ab('/')">
+		</p>
+		<p>
+			<input type="button" value="1" class="button silver" onclick="ab('1')">
+			<input type="button" value="2" class="button silver" onclick="ab('2')">
+			<input type="button" value="3" class="button silver" onclick="ab('3')">
+			<input type="button" value="+" class="button silver" onclick="ab('+')">
+			<input type="button" value="-" class="button silver" onclick="ab('-')">
+		</p>
+		<p>
+			<input type="button" value="0" class="button silver" onclick="ab('0')">
+			<input type="button" value="." class="button silver" onclick="ab('.')">
+			<input type="button" value="EXP" class="button silver" onclick="spot('EXP')">
+			<input type="button" value="pi" class="button silver" onclick="spt('pi')">
+			<input type="button" value="=" class="button silver" onclick="bst()">
+		</p>
+
+		
+		</div>
+	</div>
+	
+<script type="text/javascript">
+	// var on is a global variables
+	var on=false;
+	// var c is the displayed result on the screen/result
+	// var d is the variable that stores all the calculator buttons
+	// var a is to show all the buttons when typed on the screen
+var d='',c='';
+function ab(a){
+
+	if (!on) {
+		if(scr.value==0){
+			scr.value="";
+		}
+	    scr.value += a;	
+	    if (a=='sqrt'|| a=='abs'|| a=='Sin'|| a=='Cos'||
+	    	a=='Tan'|| a=='EXP'|| a=='Log'|| a=='cbrt') {
+		d=a;
+		
+	    }
+
+	else{
+		c+=a;
+		
+	}
+	
+	 }
+}
+function bst(){
+	if (d=='sqrt') {
+	scr.value=Math.sqrt(c);
+	c="";
+	}
+	
+	else if (d=='Sin') {
+	scr.value=Math.sin(c*Math.PI/180).toFixed(4);
+	c="";
+     }
+	else if (d=='Cos') {
+	scr.value=Math.cos(c*Math.PI/180).toFixed(4);
+	c="";
+	}
+	else if (d=='Tan') {
+	scr.value=Math.tan(c*Math.PI/180).toFixed(4);
+	c="";
+    }
+
+    else if (d=='cbrt') {
+	scr.value=Math.cbrt(c);
+	c="";
+    }
+     else if (d=='Log') {
+	scr.value=Math.log(c).toFixed(4);
+	c="";
+    }
+ 
+	else{
+		scr.value=eval(scr.value)
+	}
+	
+}
+
+ function sq2(){
+  scr.value	=Math.pow(c,2);
+  c="";
+}
+
+function tf(){
+	scr.value=Math.abs(c);
+
+}
+function md(){
+	scr.value+='%'
+}
+function sst(){                                                       
+	scr.value=Math.LN10 ; 
+}
+ function tp(){
+	scr.value=Math.cbrt(c);
+}
+
+function oj(){
+	scr.value=Math.round(c);
+}
+function spt(){
+	scr.value=Math.PI ;
+}
+function spot(){
+	scr.value=Math.E ;
+}
+
+
+
+function changeSign(input){
+			if (scr.value.substring(0,1)=="-")
+				scr.value=scr.value.substring(1,scr.value.length)
+			else
+				scr.value="-"+scr.value
+		}
+
+
+function del(){
+  scr.value=scr.value.slice(0,-1);
+  // scr.value = "0"                    
+  c = "";
+}
+
+function cl(){
+  scr.value="0"
+    c = "";
+}
+
+var on=false;
+// skyle-this button controls the ON/OFF of the calculator
+function skyle(){
+		if (on) {
+	    pl.value="OFF";
+	    on=false;
+	    document.getElementById('scr').value="0";
+		}
+		else{
+	    pl.value="ON";	
+	    on=true;
+	    document.getElementById('scr').value=" ";
+	}
+}
+skyle() 
+	 
+</script>
+
+</body> 
+</html>
