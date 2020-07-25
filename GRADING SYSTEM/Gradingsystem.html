@@ -1,0 +1,35 @@
+<html>
+<head>
+</head>
+<body>
+
+<input id="busta" type="" value="">
+<div id="result"></div>
+<button onclick="myFunction()">Grade</button>
+<script>
+function myFunction() {
+    var a=busta.value;
+    if (a>=70 && a<=100) {
+        result.innerHTML = "Excellent";
+    } 
+    else if (a<=70 && a>=60) {
+        result.innerHTML = "very good";
+    }
+    else if (a<=60 && a>=50) {
+        result.innerHTML = "good";
+    }
+    else if (a<=50 && a>=40) {
+        result.innerHTML = "pass";
+    }
+    else if (a<=40 && a>=0) {
+        result.innerHTML = "fail";
+    }
+    if (a<0 || a > 100) {
+    	 result.innerHTML = "Invalid Number";
+    } 
+    
+}
+
+</script>
+</body>
+</html>
