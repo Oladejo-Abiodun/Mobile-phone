@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="phone.css">
+</head>
+<body onload="getCard()" onunload="saveCard()">
+<div class="result">
+	<input type="text" id="box" name="">
+<select id = "network">
+	<option value="mtn">MTN</option>
+	<!-- <option value="glo">GLO</option> -->
+</select>
+
+<select id = "amount">
+	<option value="100">100</option>
+	<option value="200">200</option>
+	<option value="500">500</option>
+	<option value="1000">1000</option>
+</select>
+</select>
+	<div> 
+	<button onclick="generate()">generate</button> 
+	<button onclick=" show()">show</button><br><br>
+	<div id = "balances"></div>
+	<div id="shows"></div>
+
+</div>
+</div>
+
+
+
+
+
+
+<div class="phone">
+	<div class = "container">
+<marquee style="width: 300px;"><h2>BUSTA</h2></marquee>
+<center>
+ <div class="box">
+ 	
+ 	<input type="" class="box" id="loader">
+ 	<div class="clock" id="clock" style="display:none; margin-top: -50px;">
+	<input type="number" name="" value="00" disabled style="border: 1px solid green;width: 50px;height: 30px;margin-top: 10px;text-align: center" id="hrId">
+		<input type="number" name="" value="00" disabled style="border: 1px solid green;width: 50px;height: 30px;margin-top: 10px;text-align: center" id="minId">
+		<input type="number" name="" value="00" disabled style="border: 1px solid green;width: 50px;height: 30px;margin-top: 10px;text-align: center" id="secId">
+</div>
+ </div>
+<button class="call" id="call" onclick="call()" style="">CALL</button>
+
+<button class="endcall" id="endcall" style="display:none;" onclick="endcall()">END</tton>
+
+<button class="switch" id = "on" onclick="off()"></button>
+<button class="end" onclick="end()" style="">END</button>
+
+<div class = "usa" style="position: center">
+<div class="button">
+<input type="button" name="" class="button" value="1" onclick="dis('1')">
+<input type="button" name="" class="button" value="2" onclick="dis('2')">
+<input type="button" name="" class="button" value="3" onclick="dis('3')">
+<input type="button" name="" class="button" value="4" onclick="dis('4')">
+<input type="button" name="" class="button" value="5" onclick="dis('5')">
+<input type="button" name="" class="button" value="6" onclick="dis('6')">
+<input type="button" name="" class="button" value="7" onclick="dis('7')">
+<input type="button" name="" class="button" value="8" onclick="dis('8')">
+<input type="button" name="" class="button" value="9" onclick="dis('9')">
+<input type="button" name="" class="button" value="0" onclick="dis('0')">
+<input type="button" name="" class="button" value="*" onclick="dis('*')">
+<input type="button" name="" class="button" value="#" onclick="dis('#')">
+<input type="button" name="" class="button" value="a" onclick="dis('a')">
+<input type="button" name="" class="button" value="b" onclick="dis('b')">
+<input type="button" name="" class="button" value="c" onclick="dis('c')">
+<input type="button" name="" class="button" value="d" onclick="dis('d')">
+<input type="button" name="" class="button" value="e" onclick="dis('e')">
+<input type="button" name="" class="button" value="f" onclick="dis('f')">
+<input type="button" name="" class="button" value="g" onclick="dis('g')">
+<input type="button" name="" class="button" value="h" onclick="dis('h')">
+<input type="button" name="" class="button" value="i" onclick="dis('i')">
+<input type="button" name="" class="button" value="j" onclick="dis('j')">
+<input type="button" name="" class="button" value="k" onclick="dis('k')">
+<input type="button" name="" class="button" value="l" onclick="dis('l')">
+<input type="button" name="" class="button" value="m" onclick="dis('m')">
+<input type="button" name="" class="button" value="n" onclick="dis('n')">
+<input type="button" name="" class="button" value="o" onclick="dis('o')">
+<input type="button" name="" class="button" value="p" onclick="dis('p')">
+<input type="button" name="" class="button" value="q" onclick="dis('q')">
+<input type="button" name="" class="button" value="r" onclick="dis('r')">
+<input type="button" name="" class="button" value="s" onclick="dis('s')">
+<input type="button" name="" class="button" value="t" onclick="dis('t')">
+<input type="button" name="" class="button" value="u" onclick="dis('u')">
+<input type="button" name="" class="button" value="v" onclick="dis('v')">
+<input type="button" name="" class="button" value="w" onclick="dis('w')">
+<input type="button" name="" class="button" value="x" onclick="dis('x')">
+<input type="button" name="" class="button" value="y" onclick="dis('y')">
+<input type="button" name="" class="button" value="z" onclick="dis('z')">
+<!-- <button onclick="checkbalance()">CB</button> -->
+<button onclick="del()" style="width:100px;">DEL</button>
+</div>
+
+</div>
+ </div>
+
+</center>
+<script src = "phone.js" type="text/javascript"></script>
+</body>
+</html>
